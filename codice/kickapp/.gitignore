@@ -1,0 +1,6 @@
+# File generati da Maven/compilazione
+target/
+*.class
+
+# File di sistema macOS
+.DS_Store
