@@ -4,26 +4,53 @@
     <groupId>it.unibg.kickapp</groupId>
     <artifactId>kickapp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>KickApp</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
         <javafx.version>21.0.12</javafx.version>
         <junit.version>5.14.4</junit.version>
+        <!-- Versioni verificate su Maven Central / siti ufficiali (nov 2026) -->
+        <log4j.version>2.25.4</log4j.version>
+        <h2.version>2.4.240</h2.version>
+        <jacoco.version>0.8.14</jacoco.version>
     </properties>
 
     <dependencies>
+        <!-- GUI -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <!-- Solo se userete file FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- Logging: libreria esterna richiesta dai requisiti del corso (es. log4j) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Database embedded (nessun servizio esterno da installare) -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+
+        <!-- Test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -44,12 +71,34 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.6</version>
             </plugin>
+
+            <!-- Copertura dei test: report in target/site/jacoco/index.html dopo "mvn test" -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>it.unibg.kickapp.kickapp.App</mainClass>
+                    <mainClass>it.unibg.kickapp/it.unibg.kickapp.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
