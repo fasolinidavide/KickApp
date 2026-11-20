@@ -15,10 +15,10 @@ module it.unibg.kickapp {
 
     exports it.unibg.kickapp;
     exports it.unibg.kickapp.persistence;
-    // exports it.unibg.kickapp.model;
-    // exports it.unibg.kickapp.model.enums;
-    // exports it.unibg.kickapp.service;
-    // exports it.unibg.kickapp.gui;
+    exports it.unibg.kickapp.model;
+    exports it.unibg.kickapp.model.enums;
+    exports it.unibg.kickapp.service;
+    exports it.unibg.kickapp.gui;
 
     // solo se userete file FXML con i controller nel package gui:
     // opens it.unibg.kickapp.gui to javafx.fxml;
