@@ -1,6 +1,9 @@
-# File generati da Maven/compilazione
+# File generati dalla build (richiesto dalle regole del corso)
 target/
 *.class
 
-# File di sistema macOS
-.DS_Store
+# Database locale creato a runtime
+data/
+
+
+# NON ignorare .project e .classpath: servono al professore per importare il progetto in Eclipse
