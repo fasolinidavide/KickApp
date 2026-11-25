@@ -21,5 +21,5 @@ module it.unibg.kickapp {
     exports it.unibg.kickapp.gui;
 
     // solo se userete file FXML con i controller nel package gui:
-    // opens it.unibg.kickapp.gui to javafx.fxml;
+    opens it.unibg.kickapp.gui to javafx.fxml;
 }
