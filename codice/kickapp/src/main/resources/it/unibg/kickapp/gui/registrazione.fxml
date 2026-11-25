@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-           prefWidth="420" prefHeight="600">
-    <Label text="Area registrazione (in costruzione)"/>
-</StackPane>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unibg.kickapp.gui.RegistrazioneController"
+      spacing="8" prefWidth="420" prefHeight="600">
+    <padding>
+        <Insets top="32" right="40" bottom="32" left="40"/>
+    </padding>
+
+    <Label text="Registrazione atleta" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="12">
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Nome"/>
+            <TextField fx:id="campoNome"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Cognome"/>
+            <TextField fx:id="campoCognome"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Email"/>
+    <TextField fx:id="campoEmail"/>
+
+    <Label text="Data di nascita"/>
+    <DatePicker fx:id="campoDataNascita" maxWidth="Infinity"/>
+
+    <Label text="Password"/>
+    <PasswordField fx:id="campoPassword"/>
+
+    <Label text="Conferma password"/>
+    <PasswordField fx:id="campoConferma"/>
+
+    <Label text="L'account resta in attesa finché l'amministratore non lo approva."
+           wrapText="true"
+           style="-fx-background-color: #eef3f9; -fx-border-color: #c3d4e8; -fx-padding: 8; -fx-font-size: 12px;"/>
+
+    <Label fx:id="erroreLabel" style="-fx-text-fill: #a8261b;" wrapText="true"/>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Annulla" onAction="#annulla"/>
+        <Button text="Registrati" defaultButton="true" onAction="#registrati"/>
+    </HBox>
+</VBox>
