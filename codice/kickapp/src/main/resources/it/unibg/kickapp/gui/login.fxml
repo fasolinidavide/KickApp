@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      alignment="CENTER" prefWidth="420" prefHeight="460">
-    <Label text="Login"/>
+      fx:controller="it.unibg.kickapp.gui.LoginController"
+      spacing="10" prefWidth="420" prefHeight="460" alignment="CENTER_LEFT">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Label text="KickApp" style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+    <Label text="Gestione palestra di kickboxing" style="-fx-text-fill: #444444;"/>
+
+    <Label text="Email"/>
+    <TextField fx:id="campoEmail" promptText="nome@mail.it"/>
+
+    <Label text="Password"/>
+    <PasswordField fx:id="campoPassword"/>
+
+    <Label fx:id="erroreLabel" style="-fx-text-fill: #a8261b;" wrapText="true"/>
+
+    <Button text="Accedi" defaultButton="true" maxWidth="Infinity" onAction="#accedi"/>
+
+    <HBox alignment="CENTER" spacing="4">
+        <Label text="Non hai un account?"/>
+        <Hyperlink text="Registrati" onAction="#apriRegistrazione"/>
+    </HBox>
 </VBox>
