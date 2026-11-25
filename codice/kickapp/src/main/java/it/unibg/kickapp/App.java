@@ -1,25 +1,29 @@
 package it.unibg.kickapp;
 
+import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/**
- * Punto di ingresso dell'applicazione JavaFX KickApp.
- */
+import it.unibg.kickapp.gui.DatiDemo;
+
 public class App extends Application {
 
     private static final Logger LOG = LogManager.getLogger(App.class);
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         LOG.info("Avvio KickApp");
-        var scene = new Scene(new StackPane(new Label("KickApp")), 800, 600);
+        DatiDemo.carica();
+
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/it/unibg/kickapp/gui/login.fxml"));
+        Scene scene = new Scene(loader.load());
+
         stage.setTitle("KickApp");
         stage.setScene(scene);
         stage.show();
