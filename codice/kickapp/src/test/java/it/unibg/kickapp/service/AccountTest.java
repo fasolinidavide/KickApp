@@ -54,6 +54,7 @@ class AccountTest {
     
     @Test
     void modificaAtletaAggiornaIDati() {
+    	setUp();
         service.modificaAtleta(mario, "Marco", "blu", "marco@test.it");
         assertEquals("Marco", mario.getNome());
         assertEquals("blu", mario.getCognome());
@@ -62,6 +63,7 @@ class AccountTest {
     
     @Test
     void rimuoviAtleta() {
+    	setUp();
         service.rimuoviAtleta(mario);
         assertFalse(service.getUtenti().contains(mario));
     }
