@@ -12,10 +12,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-/.metadata/
+
 .metadata/
-.DS_Store
